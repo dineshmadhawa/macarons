@@ -1,0 +1,249 @@
+<!-- <div class="row row-mptp">
+	Acknowledgement
+	<div class="form-section-legend">Highlights</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-subsection">
+			<div class="row well-padding">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<label>La Belle <span style="color: #60CA13">Services</span></label>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+					<label>La Belle <span style="color: #60CA13">Services</span></label>
+					<div class="text-center">
+						<slider images="images" />
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+					<label>La Belle <span style="color: #60CA13">Services</span></label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+<div class="row row-mptp">
+	<div class="form-section-small-legend2">Order</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div class="row well-padding">
+<!-- 			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"> -->
+<!-- 				<label for="phoneNumberLbl">Phone number<br></label> <br> -->
+<!-- 				<label for="phoneNumberContact">03 9024 4528<br> -->
+<!-- 				</label> <br> <label for="acutenessTestLbl"><span -->
+<!-- 					class="title-text-2">Call us and order.</span><br> </label><br> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10"> -->
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="row well-padding">
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<label for="foodType">Food Type<span class="mandatory">*</span></label>
+								<span class="error-right"
+									ng-show="submitted && macrequestform.foodType.$error.required">
+									Required </span>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<ui-select name="foodType"
+									ng-model="macronOrder.foodType.id" 
+									ng-change="resetflavorsDropDown()" required> <ui-select-match
+									placeholder="Select a foodType">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="foodType.id as foodType in foodlist.foodTypes">
+								<span ng-bind="foodType.name"></span> </ui-select-choices> </ui-select>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+				</div>
+				<div class="row" ng-if="macronOrder.foodType && (foodlist.foodTypes | foodsFilter : macronOrder.foodType.id).length>0">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="row well-padding">
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<label for="typeMacaron">Select Macarons <span
+									class="mandatory">*</span></label> <span class="error-right"
+									ng-show="submitted && macrequestform.typeMacaron.$error.required">
+									Required </span>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<ui-select name="typeMacaron" ng-model="macronOrder.typeMacaron.id" required>
+								<ui-select-match placeholder="Select a macron">{{$select.selected.name}}</ui-select-match>
+								<ui-select-choices repeat="item.id as item in foodlist.foodTypes | foodsFilter : macronOrder.foodType.id">
+								<span ng-bind="item.name"></span> </ui-select-choices> </ui-select>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<div class="row well-padding">
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<label for="qtymacron">Qty <span class="mandatory">*</span></label>
+								<span class="error-right"
+									ng-show="submitted && macrequestform.qtymacron.$error.required">
+									Required </span>
+							</div>
+							<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+								<input type="number" autocomplete="off" class="form-control"
+									name="qtymacron" ng-model="macronOrder.typeMacaron.qty" required
+									maxlength="4" input-max-length-number>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<div class="row well-padding">
+							<!-- <button my-dir type="button" class="btn btn-primary">Add</button> -->
+							<!-- 	<button my-dir type="button" class="btn btn-primary">Add</button> -->
+							<button type="button" class="btn btn-success" ng-click="addItem()">Add</button>
+						</div>
+					</div>
+				</div>
+<!-- 			</div> -->
+		</div>
+	</div>
+</div>
+<div class="row row-mptp">
+	<div class="form-section-small-legend">Order Information</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<label>La Belle <span style="color: #60CA13">Prices</span></label>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+<!-- 			<div class="container"> -->
+				<label>Your <span style="color: #60CA13">Order</span></label>
+				<p>Below is your order summary, please adjust if required !.</p>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<!--         <th>#</th> -->
+								<th>Name</th>
+								<th>Qty</th>
+								<th>Cost</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="macron in macronOrder.orderItems">
+								<!--         <td>1</td> -->
+								<td>{{ macron.name }}</td>
+								<td>{{ macron.qty }}</td>
+								<td>{{ macron.price | currency }}</td>
+								<td>
+									 [<a href ng:click="removeMacron($index)">X</a>]
+								</td>
+							</tr>
+						<tr>
+							<td></td>
+							<td>Total:</td>
+							<td>{{total() | currency}}</td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+<!-- 			</div> -->
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		<div class="row menu-padding">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label for="name">Name <span class="mandatory">*</span></label>
+				<span class="error-right"
+					ng-show="submitted && macrequestform.name.$error.required">
+					Required </span>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<input type="text" autocomplete="off" class="form-control"
+					name="name" ng-model="macronOrder.customer.name" required
+					maxlength="80">
+			</div>
+			</div>
+			<div class="row menu-padding">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label for="email">Email <span class="mandatory">*</span></label> <span
+					class="error-right" ng-show="submitted && macrequestform.email.$error.required">Required </span>
+					<span class="error-right" ng-show="macrequestform.email.$error.email">
+					Not a valid email </span>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<input type="email" autocomplete="off" class="form-control"
+					name="email" ng-model="macronOrder.customer.email" required
+					maxlength="50">
+			</div>
+			</div>
+			<div class="row menu-padding">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label for="telephone ">Telephone <span class="mandatory">*</span></label>
+				<span class="error-right" ng-show="submitted && macrequestform.telephone.$error.required">Required </span>
+				 <span class="error-right" ng-show="macrequestform.telephone.$error.minlength" class="help-inline">Business Phone Number should be minimum
+						10 digits.</span> 
+				<span class="error-right" ng-show="phoneNumberError">Invalid Number Format!</span>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<input type="text" autocomplete="off" class="form-control"
+					name="telephone" ng-model="macronOrder.customer.telephone" required ng-minlength="10"
+					maxlength="10" maxlength="80" input-max-length-number>
+			</div>
+			</div>
+			<div class="row menu-padding">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<label for="deliveryDate">Delivery Date <span
+					class="mandatory">*</span></label> <span class="error-right"
+					ng-show="submitted && macrequestform.deliveryDate.$error.required">
+					Required </span> <span class="error-right" ng-show="errordeliveryDate">Invalid
+					Date Format!</span>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<input type="text" style="background: white;"
+					placeholder="DD/MM/YYYY" name="deliveryDate" class="form-control"
+					datepicker ng-model="macronOrder.deliveryDate" required>
+				<!-- 				<input type="text" class="form-control" uib-datepicker-popup ng-model="dt"  -->
+				<!-- 				datepicker-options="dateOptions" ng-required="true" /> -->
+			</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div class="row row-mptp action-buttons">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<button id="clear-btn" class="btn btn-danger" type="button"
+					ng-click="confirmResetAction()">Clear</button>
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 right">
+				<!-- <button id="submit-btn" type="submit" class="btn btn-primary">Confirm</button> -->
+				<!-- <button class="btn btn-block btn-info" ng-disabled="!addressValid(appform)">Confirm</button> -->
+				<div class="col-md-offset-4 col-md-4 col-md-offset-4">
+					<button type="button"ng-click="orderConfirm()" class="btn btn-block btn-info">Confirm</button>
+					<!-- <button type="button"ng-click="orderConfirm()" ui-sref="driverapp.address" class="btn btn-block btn-info" ng-disabled="!menuValid(macrequestform)">Confirm </button> -->
+				</div>
+			</div>
+		</div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="row row-mptp">
+	<!-- Need Help -->
+	<div class="form-section-small-legend"></div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div
+			class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-subsection-small">
+			<div class="row well-padding">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+					style="text-align: center;">
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<label>Telephone: <span style="color: #60CA13">1800
+								638 802</span></label>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						Email: <a href="mailto:labelle@hotmail.com.au " target="_blank">labelle@hotmail.com.au</a>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<label>Fax: <span style="color: #60CA13">03 8683
+								0777</span></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

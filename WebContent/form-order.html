@@ -1,0 +1,103 @@
+<div class="row row-mptp">
+	<div class="form-section-small-legend2">Summary order</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<label>Sugar & Spice <span style="color: #60CA13">Order Request.</span></label>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Qty</th>
+							<th>Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="macron in macronOrder.orderItems">
+							<td>{{ macron.name }}</td>
+							<td>{{ macron.qty }}</td>
+							<td>{{ macron.price | currency }}</td>
+						</tr>
+						<tr>
+							<td>Total:</td>
+							<td></td>
+							<td>{{total() | currency}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+	</div>
+</div>
+<div class="row row-mptp">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div class="row well-padding">
+			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<label>Customer<span style="color: #60CA13"> Details.</span></label>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<td>Name</td>
+							<td>{{macronOrder.customer.name}}</td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td>{{macronOrder.customer.email}}</td>
+						</tr>
+						<tr>
+							<td>Telephone</td>
+							<td>{{macronOrder.customer.telephone}}</td>
+						</tr>
+						<tr>
+							<td>Delivery date</td>
+							<td>{{macronOrder.deliveryDate}}</td>
+						</tr>
+					</table>
+				</div>
+				<div class="table-responsive">
+					<table class="table">
+					<tbody>
+						<tr>
+							<td><button type="button" class="btn btn-success" ng-hide="driver.id != null">Back</button></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><button type="submit" class="btn btn-success" ng-hide="driver.id != null">Submit</button></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3"></div>
+		</div>
+	</div>
+</div>
+<div class="row row-mptp">
+	<!-- Need Help -->
+	<div class="form-section-small-legend">Contact Us</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div
+			class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-subsection-small">
+			<div class="row well-padding">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+					style="text-align: center;">
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<label>Telephone: <span style="color: #60CA13">1800
+								638 802</span></label>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						Email: <a href="mailto:labelle@hotmail.com.au " target="_blank">labelle@hotmail.com.au</a>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<label>Fax: <span style="color: #60CA13">03 8683
+								0777</span></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

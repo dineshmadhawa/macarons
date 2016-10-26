@@ -1,0 +1,55 @@
+<div class="row row-mptp">
+	<div class="form-section-small-legend2">order</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div class="row margin-top-20 form-success" ng-show="refNumber">
+			<div
+				class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-success text-center">
+				<h4>Congratulations!</h4>
+				<h5>Your order has been submitted successfully. Your reference
+					number: {{refNumber}}</h5>
+			</div>
+		</div>
+		<div class="alert alert-danger margin-top-20 hidden-print"
+			ng-show="error">
+			<div class="text-center">
+				<h4>ERROR</h4>
+			</div>
+			<div>{{error}}</div>
+		</div>
+		<div
+			class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 action-buttons hidden-print">
+			<div class="text-center">
+				<button class="btn btn-primary" ng-click="create()">New
+					Order</button>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+
+
+<div class="row row-mptp">
+	<!-- Need Help -->
+	<div class="form-section-small-legend">Contact Us</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-section-small">
+		<div
+			class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-subsection-small">
+			<div class="row well-padding">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+					style="text-align: center;">
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<label>Telephone: <span style="color: #60CA13">1800
+								638 802</span></label>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						Email: <a href="mailto:labelle@hotmail.com.au " target="_blank">labelle@hotmail.com.au</a>
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+						<label>Fax: <span style="color: #60CA13">03 8683
+								0777</span></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
